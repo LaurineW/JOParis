@@ -6,6 +6,6 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller {
     public function accueil():string {
-        return "<h2>Bienvenue</h2>";
+        return "<h2>Bienvenue !!</h2>";
     }
 }
