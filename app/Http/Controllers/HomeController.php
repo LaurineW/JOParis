@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller {
     public function accueil():string {
-        return "<h2>Accueil !!</h2>";
+        return view('accueil');
     }
     public function apropos():string {
-        return "<h2>A propos </h2>";
+        return view('apropos');
     }
     public function contact():string {
-        return "<h2>Contact </h2>";
+        return view('contact');
     }
 }
