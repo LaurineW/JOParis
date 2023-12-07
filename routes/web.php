@@ -25,3 +25,4 @@ Route::get('/', function () {
 Route::get('/sports', [SportController::class,'index'])->name('sports.index');
 
 Route::any('/accueil', [HomeController::class,'accueil']);
+Route::view('/vue', 'accueil');
