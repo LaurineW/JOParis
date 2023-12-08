@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<x-layout>
 <head>
     <meta charset="UTF-8">
     <title>Page d'accueil</title>
@@ -8,10 +9,12 @@
     <link href="{{Vite::asset('resources/css/app.css')}}" rel=stylesheet>
 
 </head>
+
+
 <body>
-<h3>Coucou</h3>
 
-<img src="{{ Vite::asset('resources/images/image1.jpg') }}" alt="image">
-
+<!--<img src="{{ Vite::asset('resources/images/image1.jpg') }}" alt="image">
+-->
 </body>
+</x-layout>
 </html>

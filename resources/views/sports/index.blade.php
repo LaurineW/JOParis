@@ -1,6 +1,8 @@
 <html>
+
 <head>
     <title>Liste des sports</title>
+
 </head>
 <body>
 <h2>La liste des sports : {{ count($sports) }}
@@ -24,5 +26,5 @@
 
 
 </body>
-</html>
 
+</html>
