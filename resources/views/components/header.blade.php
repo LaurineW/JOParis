@@ -1,3 +1,3 @@
-<button>🏛Accueil</button>
-<button>📜 Taches</button>
-<button>😎 Connexion</button>
+<button>Accueil</button>
+<button>A Propos</button>
+<button>Contact</button>

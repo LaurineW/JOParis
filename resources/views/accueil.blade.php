@@ -13,8 +13,8 @@
 
 <body>
 
-<!--<img src="{{ Vite::asset('resources/images/image1.jpg') }}" alt="image">
--->
+<img src="{{ Vite::asset('resources/images/image1.jpg') }}" alt="image">
+
 </body>
 </x-layout>
 </html>

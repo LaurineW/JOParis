@@ -8,11 +8,11 @@
     @vite(['resources/css/app.css'])
     <title>{{$titre ?? "Application Laravel"}}</title>
 </head>
-<body>
-<menu>
-    <x-header></x-header>
-</menu>
 
+
+<body>
+
+<x-header></x-header>
 
 <footer>
     <x-footer></x-footer>
