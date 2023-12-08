@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller {
-    public function accueil():string {
+    public function accueil() {
         return view('accueil');
     }
-    public function apropos():string {
+    public function apropos() {
         return view('apropos');
     }
-    public function contact():string {
+    public function contact() {
         return view('contact');
     }
 }
