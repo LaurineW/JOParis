@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang=fr>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -10,12 +11,17 @@
 </head>
 
 
-<body>
-
 <x-header></x-header>
 
+<body>
+<main>
+    {{$slot}}
+</main>
+
+
+
+</body>
 <footer>
     <x-footer></x-footer>
 </footer>
-</body>
 </html>

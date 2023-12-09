@@ -5,10 +5,7 @@
 
 </head>
 <body>
-<h2>La liste des sports : {{ count($sports) }}
-
-
-</h2>
+<h2>La liste des sports : {{ count($sports) }}</h2>
 
 @if(!empty($sports))
     <ul>
