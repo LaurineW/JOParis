@@ -22,7 +22,18 @@
         <input type="text" id="search" name="search" value="{{ $search }}">
         <button type="submit">Rechercher</button>
     </form>
-    <form action="{{route('edit')}}" method="get"><button type="submit">Modification</button></form>
+
+    <h4>Filtrage par discipline</h4>
+    <form action="{{route('liste')}}" method="get">
+        <select name="cat">
+            <option value="All" @if($cat == 'All') selected @endif>-- Toutes catégories --</option>
+            @foreach($nb_discipline as $nb_disciplines)
+                <option value="{{$nb_disciplines}}" @if($cat == $nb_disciplines) selected @endif>{{$nb_disciplines}}</option>
+            @endforeach
+        </select>
+        <input type="submit" value="OK">
+    </form>
+
     <table>
     <tr>
         <td>Nom</td>

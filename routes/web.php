@@ -16,17 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::resource('sport', 'HomeController');
-
 Route::get('/sports', [HomeController::class,'liste'])->name('sports.index');
 
-Route::any('/', [HomeController::class,'accueil'])->name('accueil');
-Route::any('/liste', [HomeController::class,'liste'])->name('liste');
-Route::any('/apropos', [HomeController::class,'apropos'])->name('apropos');
-Route::any('/contact', [HomeController::class,'contact'])->name('contact');
-Route::any('/create', [HomeController::class,'create'])->name('create');
+Route::get('/', [HomeController::class,'accueil'])->name('accueil');
+Route::get('/liste', [HomeController::class,'liste'])->name('liste');
+Route::get('/apropos', [HomeController::class,'apropos'])->name('apropos');
+Route::get('/contact', [HomeController::class,'contact'])->name('contact');
+Route::get('/create', [HomeController::class,'create'])->name('create');
 Route::any('/store', [HomeController::class,'store'])->name('store');
 Route::get('/edit', [HomeController::class,'edit'])->name('edit');
-Route::any('/update', [HomeController::class,'update'])->name('update');
-Route::any('/show', [HomeController::class,'show'])->name('show');
+Route::get('/update', [HomeController::class,'update'])->name('update');
+Route::get('/show', [HomeController::class,'show'])->name('show');
+Route::get('/destroy', [HomeController::class,'destroy'])->name('destroy');

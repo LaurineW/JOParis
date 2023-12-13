@@ -10,7 +10,16 @@
 
     </head>
     <body>
-    <p>Nom du sport : {{ $sport->nom }}</p>
+
+
+    <div>
+        <p><strong>Nom :</strong>{{ $sport->nom}}</p>
+    </div>
+    <div>
+        <p><strong>Description :</strong>{{ $sport->description}}</p>
+    </div>
+
+    <form action="{{route('edit',['nom'=> $sport['nom']])}}" method="get"><button type="submit">Modification</button></form>
     </body>
 
 </x-layout>

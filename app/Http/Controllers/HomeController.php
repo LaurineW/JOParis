@@ -16,10 +16,15 @@ class HomeController extends Controller {
     public function liste(Request $request) {
         $search = $request->input('search');
 
-        $sports = Sport::when($search, function ($query) use ($search) {
-            return $query->where('nom', 'like', '%' . $search . '%');
-        })->get();
-        return view('liste', ['sports' => $sports, 'search' => $search]);
+        $cat = $request->input('cat', 'All');
+        if ($cat != 'All') {
+            $sports = Sport::where('nb_disciplines', $cat)->get();
+        } else {
+            $sports = Sport::all();
+        }
+        $nb_discipline= Sport::distinct('nb_disciplines')->pluck('nb_disciplines');
+        return view('liste', ['sports' => $sports, 'cat' => $cat, 'nb_discipline' => $nb_discipline, 'search' => $search]);
+
 
     }
     public function contact() {
@@ -89,10 +94,9 @@ class HomeController extends Controller {
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $nom)
+    public function edit()
     {
-        $sport = Sport::find($nom);
-        return view('edit', ['sports' => $sport]);
+        return view('edit');
     }
 
     /**
@@ -129,8 +133,9 @@ class HomeController extends Controller {
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request,string $id)
     {
         //
     }
+
 }
