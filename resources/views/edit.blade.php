@@ -20,7 +20,7 @@ que le formulaire vient du serveur.
 avec une commande PUT du protocole HTTP.
 --}}
 
-<form action="{{route('update',$sports->nom)}}" method="POST">
+<form action="{{route('update',$sport->id)}}" method="POST">
     @csrf
     @method('PUT')
     <div class="text-center" style="margin-top: 2rem">
@@ -30,36 +30,36 @@ avec une commande PUT du protocole HTTP.
     <div>
         <label for="nom"><strong>Nom du sport </strong></label>
         <input type="text" name="nom" id="nom"
-               value="{{ $sports->nom }}">
+               value="{{ $sport->nom }}">
     </div>
     <div>
         <label for="description"><strong>Description du sport</strong></label>
         <textarea name="description" id="description" rows="6" class="form-control"
-                  placeholder="Description..">{{ $sports->description }}</textarea>
+                  placeholder="Description..">{{ $sport->description }}</textarea>
     </div>
     <div>
         <label for="annee_ajout"><strong>Année d'ajout</strong></label>
-        <input type="number" name="annee_ajout" id="annee_ajout" min="0" max="2500" placeholder="aaaa" value="{{ $sports->annee_ajout }}">
+        <input type="number" name="annee_ajout" id="annee_ajout" min="0" max="2500" placeholder="aaaa" value="{{ $sport->annee_ajout }}">
     </div>
     <div>
         <label for="nb_disciplines"><strong>Nombres de discipline</strong></label>
         <input type="number" name="nb_disciplines" id="nb_disciplines"
-               value="{{ $sports->nb_disciplines }}">
+               value="{{ $sport->nb_disciplines }}">
     </div>
     <div>
         <label for="nb_epreuves"><strong>Nombres d'épreuves</strong></label>
         <input type="number" name="nb_epreuves" id="nb_epreuves"
-               value="{{ $sports->nb_epreuves }}">
+               value="{{ $sport->nb_epreuves }}">
     </div>
     <div>
         <label for="date_debut"><strong>Date de début</strong></label>
         <input type="date" name="date_debut" id="date_debut"
-               value="{{ $sports->date_debut }}">
+               value="{{ $sport->date_debut->format('D M Y') }}">
     </div>
     <div>
         <label for="date_fin"><strong>Date de fin</strong></label>
         <input type="date" name="date_fin" id="date_fin"
-               value="{{ $sports->date_fin }}">
+               value="{{ $sport->date_fin->format('D M Y') }}">
     </div>
     <div>
         <button class="btn btn-success" type="submit">Valide</button>

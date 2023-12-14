@@ -38,22 +38,16 @@ class SportFactory extends Factory
         $key = array_search($sport, self::$sports);
         \array_splice(self::$sports, $key, 1);
 
-        $date = $this->faker->dateTimeInInterval(
-            $startDate = '+1 months',
-            $interval = '+ 30 days',
-        );
+
         return [
-            'date_debut' => $date,
-            'date_fin' => $this->faker->dateTimeInInterval(
-                $startDate = $date,
-                $interval = $date->diff(new \DateTime('now'))->format("%R%a days"),
-            ),
+            'date_debut' => $this->faker->date(),
+            'date_fin' => $this->faker->date(),
             'nom' => $sport,
             'description' => $this->faker->paragraph,
             'annee_ajout' => $this->faker->year(),
             'nb_epreuves' => $this->faker->randomDigit(),
             'nb_disciplines' => $this->faker->randomDigit(10),
-            'created_at' => new \DateTime('now'),
+            'created_at' => new \DateTime('yesterday'),
             'updated_at' => new \DateTime('now'),
         ];
     }

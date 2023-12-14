@@ -19,7 +19,7 @@
         <p><strong>Description :</strong>{{ $sport->description}}</p>
     </div>
 
-    <form action="{{route('edit',['nom'=> $sport['nom']])}}" method="get"><button type="submit">Modification</button></form>
+    <form action="{{route('edit',$sport['id'])}}" method="get"><button type="submit">Modification</button></form>
     </body>
 
 </x-layout>

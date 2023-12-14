@@ -14,9 +14,6 @@
     <body>
     <h2>La liste des sports : {{ count($sports) }}</h2>
     <a href="{{route('create')}}"><button>Creation</button></a>
-
-    <!--<img src="{{ Vite::asset('resources/images/image1.jpg') }}" alt="image">-->
-
     <form action="{{ route('sports.index') }}" method="get">
         <label for="search">Rechercher un sport :</label>
         <input type="text" id="search" name="search" value="{{ $search }}">
@@ -47,7 +44,7 @@
     @if(!empty($sports))
             @foreach($sports as $sport)
                 <tr>
-                    <td><a href="{{route('show', ['nom'=> $sport['nom']])}}">{{$sport['nom']}}</a></td>
+                    <td><a href="{{route('show',$sport['id'])}}">{{$sport['nom']}}</a></td>
                     <td>{{$sport['description']}}</td>
                     <td>{{$sport['annee_ajout']}}</td>
                     <td>{{$sport['nb_disciplines']}}</td>

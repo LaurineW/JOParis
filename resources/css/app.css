@@ -52,8 +52,5 @@ a:hover {
 a.footer{
     background-color: white;
 }
-a:active {
-    background-color: black;
-    font-style: italic;
-}
+
 

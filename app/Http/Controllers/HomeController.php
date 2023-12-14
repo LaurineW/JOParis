@@ -13,6 +13,7 @@ class HomeController extends Controller {
     public function apropos() {
         return view('apropos');
     }
+
     public function liste(Request $request) {
         $search = $request->input('search');
 
@@ -22,10 +23,11 @@ class HomeController extends Controller {
         } else {
             $sports = Sport::all();
         }
+        if (isset($search)){
+            $sports = Sport::where('nom','like','%'.$search.'%')->get();
+        }
         $nb_discipline= Sport::distinct('nb_disciplines')->pluck('nb_disciplines');
         return view('liste', ['sports' => $sports, 'cat' => $cat, 'nb_discipline' => $nb_discipline, 'search' => $search]);
-
-
     }
     public function contact() {
         return view('contact');
@@ -84,26 +86,27 @@ class HomeController extends Controller {
     /**
      * Display the specified resource.
      */
-    public function show(Request $request)
+    public function show(String $id)
     {
-        $nom = $request->input('nom');
-        $sport = Sport::where('nom', 'like', '%' . $nom . '%')->get()[0];
+
+        $sport = Sport::find($id);
         return view('show', ['sport' => $sport]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit()
+    public function edit(String $id)
     {
-        return view('edit');
+        $sport = Sport::find($id);
+        return view('edit', ['sport' => $sport]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $nom) {
-    $sport = Sport::find($nom);
+    public function update(Request $request, String $id) {
+    $sport = Sport::find($id);
 
     $this->validate(
         $request,
