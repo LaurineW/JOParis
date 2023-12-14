@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Fortify\Features;
 
 return [
 
@@ -156,18 +157,18 @@ return [
     */
 
     'providers' => ServiceProvider::defaultProviders()->merge([
+
+        /* ... */
         /*
          * Package Service Providers...
          */
 
+        App\Providers\FortifyServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        /* ... */
     ])->toArray(),
 
     /*
@@ -180,6 +181,13 @@ return [
     | the aliases are "lazy" loaded so they don't hinder performance.
     |
     */
+    'features' => [
+        Features::registration(),
+        Features::resetPasswords(),
+        // Features::emailVerification(),
+        //        Features::updateProfileInformation(),
+        //        Features::updatePasswords(),
+    ],
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,

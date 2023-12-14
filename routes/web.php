@@ -27,3 +27,7 @@ Route::get('/edit/{id}', [HomeController::class,'edit'])->name('edit');
 Route::put('/update/{id}', [HomeController::class,'update'])->name('update');
 Route::get('/show/{id}', [HomeController::class,'show'])->name('show');
 Route::get('/destroy', [HomeController::class,'destroy'])->name('destroy');
+
+Route::get('/home', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('home');
