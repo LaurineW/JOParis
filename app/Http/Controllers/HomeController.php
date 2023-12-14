@@ -86,11 +86,11 @@ class HomeController extends Controller {
     /**
      * Display the specified resource.
      */
-    public function show(String $id)
+    public function show(Request $request, String $id)
     {
-
+        $action = $request->query('action', 'show');
         $sport = Sport::find($id);
-        return view('show', ['sport' => $sport]);
+        return view('show', ['sport' => $sport, 'action' => $action]);
     }
 
     /**
@@ -138,7 +138,11 @@ class HomeController extends Controller {
      */
     public function destroy(Request $request,string $id)
     {
-        //
+        if ($request->delete == 'valide') {
+            $sport = Sport::find($id);
+            $sport->delete();
+        }
+        return redirect()->route('liste');
     }
 
 }
