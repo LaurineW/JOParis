@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -38,11 +39,12 @@ class SportFactory extends Factory
         $key = array_search($sport, self::$sports);
         \array_splice(self::$sports, $key, 1);
 
-
+        $users_id = User::all()->pluck('id');
         return [
             'date_debut' => $this->faker->date(),
             'date_fin' => $this->faker->date(),
             'nom' => $sport,
+            'user_id' => $this->faker->randomElement($users_id),
             'description' => $this->faker->paragraph,
             'annee_ajout' => $this->faker->year(),
             'nb_epreuves' => $this->faker->randomDigit(),
