@@ -29,6 +29,7 @@ class HomeController extends Controller {
         $nb_discipline= Sport::distinct('nb_disciplines')->pluck('nb_disciplines');
         return view('liste', ['sports' => $sports, 'cat' => $cat, 'nb_discipline' => $nb_discipline, 'search' => $search]);
     }
+
     public function contact() {
         return view('contact');
     }
