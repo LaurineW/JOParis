@@ -54,12 +54,12 @@ avec une commande PUT du protocole HTTP.
     <div>
         <label for="date_debut"><strong>Date de début</strong></label>
         <input type="date" name="date_debut" id="date_debut"
-               value="{{ $sport->date_debut->format('D M Y') }}">
+               value="{{ $sport->date_debut->format('Y-m-d') }}">
     </div>
     <div>
         <label for="date_fin"><strong>Date de fin</strong></label>
         <input type="date" name="date_fin" id="date_fin"
-               value="{{ $sport->date_fin->format('D M Y') }}">
+               value="{{ $sport->date_fin->format('Y-m-d') }}">
     </div>
     <div>
         <button class="btn btn-success" type="submit">Valide</button>

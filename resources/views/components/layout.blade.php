@@ -11,17 +11,18 @@
 </head>
 
 
-<x-header></x-header>
 
 <body>
+<x-header></x-header>
 <main>
     {{$slot}}
 </main>
 
 
 
-</body>
 <footer>
     <x-footer></x-footer>
 </footer>
+</body>
+
 </html>
