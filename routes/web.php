@@ -26,7 +26,7 @@ Route::any('/store', [HomeController::class,'store'])->name('store');
 Route::get('/edit/{id}', [HomeController::class,'edit'])->name('edit');
 Route::put('/update/{id}', [HomeController::class,'update'])->name('update');
 Route::get('/show/{id}', [HomeController::class,'show'])->name('show');
-Route::get('/destroy', [HomeController::class,'destroy'])->name('destroy');
+Route::delete('/destroy/{id}', [HomeController::class,'destroy'])->name('destroy');
 //dashboard
 Route::get('/home', function () {
     return view('dashboard');

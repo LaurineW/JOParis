@@ -27,10 +27,10 @@
     </div>
 
     <form action="{{route('edit',$sport['id'])}}" method="get"><button type="submit">Modification</button></form>
-    <form action="{{route('show',['id' => $sport['id'], 'action' => 'delete'])}}" method="get"><button type="submit">Delete</button></form>
+    <form action="{{route('show',['id' => $sport, 'action' => 'delete'])}}"><button type="submit">Delete</button></form>
 
     @if($action == 'delete')
-        <form action="{{route('destroy',$sport->id)}}" method="POST">
+        <form action="{{route('destroy',$sport)}}" method="POST">
             @csrf
             @method('DELETE')
             <div class="text-center">
