@@ -23,4 +23,7 @@ class Sport extends Model
         'date_debut' => 'datetime',
         'date_fin' => 'datetime',
     ];
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }

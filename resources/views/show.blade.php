@@ -30,7 +30,7 @@
     </div>
 
     <form action="{{route('edit',$sport['id'])}}" method="get"><button type="submit">Modification</button></form>
-    <form action="{{route('show',['id' => $sport, 'action' => 'delete'])}}"><button type="submit">Delete</button></form>
+    <button><a href="{{route('show',['id' => $sport['id'], 'action' => 'delete'])}}">Delete</a></button>
 
     @if($action == 'delete')
         <form action="{{route('destroy',$sport)}}" method="POST">
