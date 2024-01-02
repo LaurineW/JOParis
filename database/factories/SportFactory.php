@@ -24,7 +24,8 @@ class SportFactory extends Factory
         'judo',
         'karate',
         'jujitsue',
-        'Aqua poney'
+        'Aqua poney',
+        'Gymnastique'
     ];
 
     /**

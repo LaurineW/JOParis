@@ -1,29 +1,33 @@
 img{
-    display: block;
-    width: 60%;
-    height: 60%;
-    margin:auto;
+    display: flex;
 }
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
+.droit{
+    display:flex;
+    position:absolute;
+    right:0px;
+}
 body {
     font-family: sans-serif;
     color: #343a40;
     height: 100vh;
-    display: grid;
+    display: box;
 
 }
+
+
 nav{
+    font-family:Andale Mono, monospace;
+    height: 80px;
     font-size: 20px;
     font-weight: bold;
     display: flex;
     cursor: pointer;
-    justify-content: center;
-    background-color: #ffe436;
+    background-color: #D7C378;
     padding: 0.5em;
     color: #fff;
 }
@@ -33,21 +37,31 @@ nav a {
     padding: 1em;
     margin: 0 1em;
 }
+.JO{
+    height:70px;
+    width:70px;
+}
 main {
     margin-top: 10px;
-
 }
 footer {
-    grid-column: 1 / -1;
-    display: flex;
+
+    height: 4em;
     justify-content: center;
-    margin-top: 24px;
+
+    background-color: grey;
 }
 
 a:hover {
     color: #000000;
     font-weight: bold;
 
+}
+table,tr,td {
+    text-align:center;
+    margin:2%;
+    border: 1px solid;
+    border-collapse: collapse;
 }
 a.footer{
     background-color: white;

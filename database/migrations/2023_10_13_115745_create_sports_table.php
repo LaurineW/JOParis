@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('nb_disciplines');
             $table->datetime('date_debut')->nullable(false);
             $table->datetime('date_fin')->nullable(false);
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

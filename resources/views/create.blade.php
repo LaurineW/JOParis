@@ -1,7 +1,6 @@
-{{--
-messages d'erreurs dans la saisie du formulaire.
---}}
-
+<!DOCTYPE html>
+<html lang="en">
+<x-layout>
 @if ($errors->any())
     <div>
         <ul>
@@ -62,3 +61,4 @@ que le formulaire vient du serveur.
         <button class="btn btn-success" type="submit">Valide</button>
     </div>
 </form>
+</x-layout>

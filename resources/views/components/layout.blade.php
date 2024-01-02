@@ -20,9 +20,10 @@
 
 
 
+
+</body>
 <footer>
     <x-footer></x-footer>
 </footer>
-</body>
 
 </html>

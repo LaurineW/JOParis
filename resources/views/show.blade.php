@@ -25,9 +25,7 @@
     <div>
         <p><strong>Description :</strong>{{ $sport->description}}</p>
     </div>
-    <div>
-        <p><strong>Createur :</strong>{{Auth::user()->name}}</p>
-    </div>
+
 
     <form action="{{route('edit',$sport['id'])}}" method="get"><button type="submit">Modification</button></form>
     <button><a href="{{route('show',['id' => $sport['id'], 'action' => 'delete'])}}">Delete</a></button>

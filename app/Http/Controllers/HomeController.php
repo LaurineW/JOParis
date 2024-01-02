@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Sport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller {
 
@@ -106,21 +107,26 @@ class HomeController extends Controller {
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, String $id) {
-    $sport = Sport::find($id);
+    public function update(Request $request, String $id)
+    {
+        $user = Auth::user();
+        if ($user->cant('update', $sport)) {
+            return redirect()->route('show', ['tach' => $tache->id, 'action' => 'show'])->with('status', 'Impossible de modifier la tâche');
+        }
+        $sport = Sport::find($id);
 
-    $this->validate(
-        $request,
-        [
-            'nom'=> 'required',
-            'description'=> 'required',
-            'annee_ajout'=> 'required',
-            'nb_disciplines'=> 'required',
-            'nb_epreuves'=> 'required',
-            'date_debut'=> 'required',
-            'date_fin'=> 'required',
-        ]
-    );
+        $this->validate(
+            $request,
+            [
+                'nom' => 'required',
+                'description' => 'required',
+                'annee_ajout' => 'required',
+                'nb_disciplines' => 'required',
+                'nb_epreuves' => 'required',
+                'date_debut' => 'required',
+                'date_fin' => 'required',
+            ]
+        );
         $sport->nom = $request->nom;
         $sport->description = $request->description;
         $sport->annee_ajout = $request->annee_ajout;
@@ -129,10 +135,11 @@ class HomeController extends Controller {
         $sport->date_debut = $request->date_debut;
         $sport->date_fin = $request->date_fin;
 
-    $sport->save();
+        $sport->save();
 
-    return redirect()->route('liste');
-}
+        return redirect()->route('liste');
+    }
+
 
     /**
      * Remove the specified resource from storage.

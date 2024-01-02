@@ -1,15 +1,17 @@
 
 <nav>
-    <a href="{{route('home')}}"> Accueil</a>
+    <img class="JO" src="{{Vite::asset('resources/images/JOParis.png')}}" >
+    <a href="{{route('accueil')}}"> Accueil</a>
     <a href="{{route('apropos')}}">A propos</a>
-    <a href="{{route('contact')}}"> Contacts</a>
+    <a href="{{route('contact')}}"> Contact</a>
     @auth
         <a href="{{route('liste')}}">Liste</a>
     @endauth
     <span class="a-droite"></span>
+    <div class="droit">
     @guest
-        <a href="{{route('register')}}"> Enregistrement</a>
-        <a href="{{route('login')}}"> Connexion</a>
+        <a  href="{{route('register')}}"> Enregistrement</a>
+        <a  href="{{route('login')}}"> Connexion</a>
     @endguest
 
     @auth
@@ -25,5 +27,5 @@
             });
         </script>
     @endauth
-
+    </div>
 </nav>
