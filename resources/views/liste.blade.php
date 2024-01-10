@@ -12,25 +12,26 @@
 
 
     <body>
-    <h2>La liste des sports : {{ count($sports) }}</h2>
-    <a href="{{route('create')}}"><button>Creation</button></a>
-    <form action="{{ route('sports.index') }}" method="get">
-        <label for="search">Rechercher un sport :</label>
-        <input type="text" id="search" name="search" value="{{ $search }}">
-        <button type="submit">Rechercher</button>
-    </form>
+    <div class="milieu">
+        <h2>La liste des sports : {{ count($sports) }}</h2>
 
-    <h4>Filtrage par discipline</h4>
-    <form action="{{route('liste')}}" method="get">
-        <select name="cat">
-            <option value="All" @if($cat == 'All') selected @endif>-- Toutes catégories --</option>
-            @foreach($nb_discipline as $nb_disciplines)
-                <option value="{{$nb_disciplines}}" @if($cat == $nb_disciplines) selected @endif>{{$nb_disciplines}}</option>
-            @endforeach
-        </select>
-        <input type="submit" value="OK">
-    </form>
-
+        <form action="{{ route('sports.index') }}" method="get">
+            <label for="search">Rechercher un sport :</label>
+            <input type="text" id="search" name="search" value="{{ $search }}">
+            <button type="submit">Rechercher</button>
+        </form>
+        <a href="{{route('create')}}"><button>Ajouter</button></a>
+        <h4 class="filtre">Filtrage par discipline</h4>
+        <form class="filtre" action="{{route('liste')}}" method="get">
+            <select name="cat">
+                <option value="All" @if($cat == 'All') selected @endif>-- Toutes disciplines --</option>
+                @foreach($nb_discipline as $nb_disciplines)
+                    <option value="{{$nb_disciplines}}" @if($cat == $nb_disciplines) selected @endif>{{$nb_disciplines}}</option>
+                @endforeach
+            </select>
+            <input class="button" type="submit" value="OK">
+        </form>
+    </div>
     <table>
     <tr>
         <td>Nom</td>
@@ -40,17 +41,19 @@
         <td>Nombres d'épreuves</td>
         <td>Date de début</td>
         <td>Date de fin</td>
+        <td>Détails</td>
     </tr>
     @if(!empty($sports))
             @foreach($sports as $sport)
                 <tr>
-                    <td><a href="{{route('show',$sport['id'])}}">{{$sport['nom']}}</a></td>
+                    <td>{{$sport['nom']}}</td>
                     <td>{{$sport['description']}}</td>
                     <td>{{$sport['annee_ajout']}}</td>
                     <td>{{$sport['nb_disciplines']}}</td>
                     <td>{{$sport['nb_epreuves']}}</td>
                     <td>{{$sport['date_debut']}}</td>
                     <td>{{$sport['date_fin']}}</td>
+                    <td><a href="{{route('show',$sport['id'])}}"><button>Détails</button></a></td>
                 </tr>
             @endforeach
     </table>

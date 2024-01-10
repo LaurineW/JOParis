@@ -5,6 +5,7 @@ img{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family:Andale Mono, monospace;
 }
 .droit{
     display:flex;
@@ -16,7 +17,13 @@ body {
     color: #343a40;
     height: 100vh;
     display: box;
-
+}
+.milieu{
+    font-family: sans-serif;
+    color: #343a40;
+    display: box;
+    margin-left:5vh;
+    margin-right: 5vh;
 }
 
 
@@ -37,6 +44,20 @@ nav a {
     padding: 1em;
     margin: 0 1em;
 }
+button, .button, .image{
+    background-color: #D7C378;
+    text-align: center;
+    color: #FCF3E1;
+    padding: 10px;
+    border: none;
+    border-radius:  5px;
+}
+.filtre{
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    margin-top: 0;
+}
 .JO{
     height:70px;
     width:70px;
@@ -45,26 +66,80 @@ main {
     margin-top: 10px;
 }
 footer {
-
-    height: 4em;
+    height: 10em;
     justify-content: center;
+    background-color: #D7C378;
 
-    background-color: grey;
 }
-
+.main-footer{
+    text-align: end;
+    font-size: 15px;
+    margin: 0;
+}
+.form{
+    font-family:Andale Mono, monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10vh;
+    color:white;
+    background-color: #D7C378;
+    border-radius: 10px;
+    margin-left: 50vh;
+    margin-right: 50vh;
+    padding:3vh;
+}
+.valid{
+    border:1px solid;
+    margin-top:2vh;
+}
 a:hover {
     color: #000000;
     font-weight: bold;
 
+}
+.text-center{
+    text-align: center;
+    margin-bottom: 2vh;
+}
+.label{
+    margin-bottom:0.5vh;
+}
+textarea {
+    height: 100px;
+    width: 90%;
 }
 table,tr,td {
     text-align:center;
     margin:2%;
     border: 1px solid;
     border-collapse: collapse;
+    padding:1vh;
 }
-a.footer{
-    background-color: white;
+
+.show{
+    margin-left:20vh;
+    margin-right:20vh;
+    text-align: center;
+    height: 80vh;
+}
+.button-align{
+    display:inline-block;
+    margin:10px 1% 10px 1%;
+    justify-content: center;
+
+}
+a{
+    text-decoration: none;
+}
+.showImg{
+    height:100px;
+    width: 100px;
+    margin: 2vh auto;
+}
+.retour{
+    text-align: center;
 }
 
 

@@ -31,3 +31,4 @@ Route::delete('/destroy/{id}', [HomeController::class,'destroy'])->name('destroy
 Route::get('/home', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('home');
+Route::post('/show/{id}/upload', [HomeController::class, 'upload'])->name('upload');

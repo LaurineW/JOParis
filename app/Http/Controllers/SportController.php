@@ -6,7 +6,7 @@ use App\Models\Sport;
 use Illuminate\Http\Request;
 
 class SportController extends Controller {
-    public function index($search = null)
+    public function index( $search = null)
     {
 
         if (!isset($search)) {

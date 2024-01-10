@@ -47,6 +47,7 @@ class SportFactory extends Factory
             'nom' => $sport,
             'user_id' => $this->faker->randomElement($users_id),
             'description' => $this->faker->paragraph,
+            'url_media' => "images/image1.jpg",
             'annee_ajout' => $this->faker->year(),
             'nb_epreuves' => $this->faker->randomDigit(),
             'nb_disciplines' => $this->faker->randomDigit(10),

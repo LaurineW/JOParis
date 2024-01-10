@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('annee_ajout');
             $table->integer('nb_epreuves');
             $table->integer('nb_disciplines');
+            $table->string('url_media')->default('images/image1.jpg');
             $table->datetime('date_debut')->nullable(false);
             $table->datetime('date_fin')->nullable(false);
             $table->unsignedBigInteger('user_id')->nullable();

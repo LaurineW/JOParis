@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Sport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller {
 
@@ -17,7 +19,6 @@ class HomeController extends Controller {
 
     public function liste(Request $request) {
         $search = $request->input('search');
-
         $cat = $request->input('cat', 'All');
         if ($cat != 'All') {
             $sports = Sport::where('nb_disciplines', $cat)->get();
@@ -76,6 +77,7 @@ class HomeController extends Controller {
         $sport->nb_epreuves = $request->nb_epreuves;
         $sport->date_debut = $request->date_debut;
         $sport->date_fin = $request->date_fin;
+        $sport->user_id = Auth::id();
 
 
         // insertion de l'enregistrement dans la base de données
@@ -109,12 +111,12 @@ class HomeController extends Controller {
      */
     public function update(Request $request, String $id)
     {
-        $user = Auth::user();
-        if ($user->cant('update', $sport)) {
-            return redirect()->route('show', ['tach' => $tache->id, 'action' => 'show'])->with('status', 'Impossible de modifier la tâche');
-        }
-        $sport = Sport::find($id);
 
+        $sport = Sport::find($id);
+        //$user = Auth::user();
+        //if ($user->cant('update', $sport)) {
+        //    return redirect()->route('show', ['sport' => $sport->id, 'action' => 'show'])->with('status', 'Impossible de modifier le sport');
+        //}
         $this->validate(
             $request,
             [
@@ -134,10 +136,9 @@ class HomeController extends Controller {
         $sport->nb_epreuves = $request->nb_epreuves;
         $sport->date_debut = $request->date_debut;
         $sport->date_fin = $request->date_fin;
-
         $sport->save();
 
-        return redirect()->route('liste');
+        return redirect()->route('show',$sport);
     }
 
 
@@ -151,6 +152,32 @@ class HomeController extends Controller {
             $sport->delete();
         }
         return redirect()->route('liste');
+    }
+    public function upload(Request $request, $id) {
+        $sport = Sport::findOrFail($id);
+        if ($request->hasFile('document') && $request->file('document')->isValid()) {
+            $file = $request->file('document');
+        } else {
+            $msg = "Aucun fichier téléchargé";
+            return redirect()->route('show', [$sport->id])
+                ->with('type', 'primary')
+                ->with('msg', 'Smartphone non modifié ('. $msg . ')');
+        }
+        $nom = 'image';
+        $now = time();
+        $nom = sprintf("%s_%d.%s", $nom, $now, $file->extension());
+
+        $file->storeAs('images', $nom);
+        if (isset($sport->url_media)) {
+            Log::info("Image supprimée : ". $sport->url_media);
+            Storage::delete($sport->url_media);
+        }
+        $sport->url_media = 'images/'.$nom;
+        $sport->save();
+        //$file->store('docs');
+        return redirect()->route('show', [$sport->id])
+            ->with('type', 'primary')
+            ->with('msg', 'Sport modifié avec succès');
     }
 
 }

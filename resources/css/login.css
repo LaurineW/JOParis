@@ -1,7 +1,6 @@
 html {
     height: 100%;
-    background: #222222;
-    background: linear-gradient(to top, #202a16, #6a733a);
+    background: #D7C378;
     color: white;
 }
 
@@ -68,7 +67,7 @@ body {
 }
 
 .form-button {
-    background: #69d2e7;
+    background: #D7C378;
     border: 1px solid #ddd;
     color: #ffffff;
     padding: 10px;
@@ -77,7 +76,7 @@ body {
 }
 
 .form-button:hover {
-    background: #69c8e7;
+    background:#D7C378;
 }
 
 .form-header {
@@ -90,7 +89,7 @@ body {
 }
 
 .form-footer a {
-    color: #69c8e7;
+    color: #D7C378;
 }
 
 .auCentre {
